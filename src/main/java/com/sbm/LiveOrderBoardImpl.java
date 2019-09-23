@@ -59,9 +59,9 @@ public class LiveOrderBoardImpl implements LiveOrderBoard {
      */
     @Override
     public List<OrderSummary> summary() {
-        return orders.values().stream().parallel().
+        return orders.values().stream().
                 collect(groupingBy(Bid::ofOrder, mapping(Order::getQuantity, toList()))).
-                entrySet().stream().parallel().
+                entrySet().stream().
                 map(toOrderSummary()).
                 sorted(byOrderTypeAndOrderPrice).
                 collect(toList());
