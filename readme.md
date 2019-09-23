@@ -14,5 +14,3 @@ Design Limitations:-
 Ideally, creation of OrderId and persistence of Order, User and other Domain objects shall be in persistent store(e.g. oracle database)
 2. LiverOrderBoard.summary() operation can have groupingBy and map operations in parallel (concurrently using stream.parallel()) provided number of orders
    are large and number of cores/processing power available. (Profiling needs to be done to ascertain the advantage/need of it).
-3. Currently, I am using default constructor for creating maps for Orders and Users. ConcurrentHashMap initial size determination shall be on the basis of number of orders expected for the live order board.
-
