@@ -4,6 +4,7 @@ import org.joda.money.CurrencyUnit;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
 public class BidTest {
 
@@ -13,7 +14,7 @@ public class BidTest {
         Bid bid1 = Bid.ofOrder(order1);
         Order order2 = new Order(2, new User("John1"), new Quantity(3.5, Quantity.QuantityType.KILOGRAMS), PricePerQuantityType.of(CurrencyUnit.GBP, 311), Order.Type.SELL);
         Bid bid2 = Bid.ofOrder(order2);
-        assertFalse(bid1.equals(bid2));
+        assertNotEquals(bid1, bid2);
     }
 
     @Test
@@ -22,6 +23,6 @@ public class BidTest {
         Bid bid1 = Bid.ofOrder(order1);
         Order order2 = new Order(2, new User("John1"), new Quantity(3.5, Quantity.QuantityType.KILOGRAMS), PricePerQuantityType.of(CurrencyUnit.GBP, 309), Order.Type.BUY);
         Bid bid2 = Bid.ofOrder(order2);
-        assertFalse(bid1.equals(bid2));
+        assertNotEquals(bid1,bid2);
     }
 }
